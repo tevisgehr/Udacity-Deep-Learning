@@ -215,7 +215,8 @@ def test_process_decoding_input(process_decoding_input):
         dec_input = process_decoding_input(target_data, target_vocab_to_int, batch_size)
 
         assert dec_input.get_shape() == (batch_size, seq_length),\
-            'Wrong shape returned.  Found {}'.format(dec_input.get_shape())
+            'Wrong shape returned.  Found {}, Wanted {}'.format(dec_input.get_shape(),(batch_size, seq_length))
+            #'Wrong shape returned.  Found {}'.format(dec_input.get_shape())
 
         test_target_data = [[10, 20, 30], [40, 18, 23]]
         with tf.Session() as sess:
